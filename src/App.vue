@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
+    <div class="aplayers" >
+          <aplayer float ref="aplayer" autoplay
+              :music="{
+                title: '安河桥',
+                artist: '宋东野',
+                src:require('../static/bg.mp3') ,
+                pic: ''
+              }"
+            />
+        </div>
   </div>
 </template>
+<script>
+import aplayer from 'vue-aplayer'
+export default {
+  components: {
+    aplayer,
+  },
+  created () {
+    console.log(this.$refs)
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
   }
+}
+</script>
+<style scoped>
+@import'./assets/css/animate.min.css';
+@import'./assets/css/bootstrap.min.css';
+@import'./assets/css/iconfont.css';
+
+.aplayers{
+  width: 300px;
+  position: fixed;
+  bottom: 0;
+  left: 20px;
 }
 </style>
